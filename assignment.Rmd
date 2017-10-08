@@ -2,7 +2,10 @@
 title: "Assignment Week2"
 author: "insofern"
 date: "October 8, 2017"
-output: html_document
+output: 
+  html_document: 
+    fig_caption: yes
+    self_contained: no
 ---
 
 ```{r setup, include=FALSE}
@@ -42,6 +45,7 @@ for ( i in avail_dates){
 ```{r}
 hist1 <- qplot(na.omit(steps$SumSteps))
 print(hist1)
+fig.path = "images/"
 ```
 3. Calculate and report the mean and median of the total number of steps taken per day
 ```{r}
@@ -64,6 +68,7 @@ PlotInterval <- ggplot(data = intervals, aes(x = interval, y = steps)) +
   ylab("Total Number of Steps") +
   ggtitle("Average Number of Steps Taken of the 5-Minute Interval")
 print(PlotInterval)
+fig.path = "images/"
 ```
 
 2. Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
@@ -114,6 +119,7 @@ for ( i in avail_dates){
 
 hist2 <- qplot(replaced_steps$SumSteps)
 print(hist2)
+fig.path = "images/"
 
 mean_replace <- mean(replaced_steps$SumSteps)
 med_replace <- median(replaced_steps$SumSteps)
@@ -149,5 +155,6 @@ PlotInterval2 <- ggplot(data = int_week, aes(x = interval, y = steps)) + facet_g
   ylab("Total Number of Steps") +
   ggtitle("Average Number of Steps Taken of the 5-Minute Interval")
 print(PlotInterval2)
+fig.path = "images/"
 ```
 
